@@ -8,7 +8,11 @@ class productManager {
 
   getProducts = () => this.#products
 
-  getProductsById = (id) => this.#products.find(i => i.id === id) ? i : `ID: ${id} Not Found`
+  getProductsById = (id) => {
+    const product = this.#products.find(i => i.id === id)
+    if (product) return product 
+    return `ID: ${id} Not Found`
+  }
 
   #generateId = () => (this.#products.length === 0) ? 1 : this.#products[this.#products.length-1].id + 1
 
@@ -33,12 +37,9 @@ class productManager {
 
 const product = new productManager()
 
-product.addProduct('PGC 100', 'Perfil estructural C 100mm', 4500, './notImage', 'c100', 122)
-product.addProduct('PGU 100', 'Perfil estructural U 100mm', 3500, './notImage', 'u100')
-product.addProduct('PGU 200', 'Perfil estructural U 200mm', 8500, './notImage', 'u200', 125)
-product.addProduct('PGU 300', 'Perfil estructural U 200mm', 8500, './notImage', 'u200', 125)
+product.addProduct('producto prubea', 'Este es un producto prueba', 200, 'Sin imagen', 'abc123', 25)
+
 
 
 console.log(product.getProducts());
 console.log(product.getProductsById(3));
-// console.log(product.products);
