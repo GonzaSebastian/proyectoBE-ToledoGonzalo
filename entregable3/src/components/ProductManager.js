@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-class productManager {
+export default class productManager {
   #products
   #error
 
@@ -24,14 +24,15 @@ class productManager {
       console.log(this.#error);
   }
 
-  readProducts = async() => {
-    return JSON.parse(await fs.promises.readFile(this.path, "utf-8"))
-  }
+  // readProducts = async() => {
+  //   return JSON.parse(await fs.promises.readFile(this.path, "utf-8"))
+  // }
 
   getProducts = async() => {
-    let resp = await this.readProducts()
+    // let resp = await this.readProducts()
+    return JSON.parse(await fs.promises.readFile(this.path, "utf-8"))
 
-    return resp;
+    // return resp;
   }
 
   getProductsById = async(id) => {
@@ -77,12 +78,19 @@ class productManager {
   }
 }
 
-const product = new productManager("./products.json")
+// const product = new productManager("./products.json")
 
-// product.addProduct('product1', 'Este es un producto prueba 1', 200, 'Sin imagen', 'abc123', 25)
-// product.addProduct('product2', 'Este es un producto prueba 2', 200, 'Sin imagen', 'abc123', 52)
-// product.addProduct('product3', 'Este es un producto prueba 3', 200, 'Sin imagen', 'abc333', 33)
-// product.addProduct('product4', 'Este es un producto prueba 4', 200, 'Sin imagen', 'abc444', 44)
+// product.addProduct('product1', 'Este es un producto prueba 1', 1200, 'Sin imagen', 'abc111', 25)
+// product.addProduct('product2', 'Este es un producto prueba 2', 4200, 'Sin imagen', 'abc222', 52)
+// product.addProduct('product3', 'Este es un producto prueba 3', 2200, 'Sin imagen', 'abc333', 33)
+// product.addProduct('product4', 'Este es un producto prueba 4', 6200, 'Sin imagen', 'abc444', 44)
+// product.addProduct('product5', 'Este es un producto prueba 5', 7200, 'Sin imagen', 'abc555', 44)
+// product.addProduct('product6', 'Este es un producto prueba 6', 9200, 'Sin imagen', 'abc666', 44)
+// product.addProduct('product7', 'Este es un producto prueba 7', 6200, 'Sin imagen', 'abc777', 44)
+// product.addProduct('product8', 'Este es un producto prueba 8', 56200, 'Sin imagen', 'abc888', 44)
+// product.addProduct('product9', 'Este es un producto prueba 9', 4200, 'Sin imagen', 'abc999', 44)
+// product.addProduct('product10', 'Este es un producto prueba 10', 45200, 'Sin imagen', 'abc1010', 44)
+
 
 // console.log(await product.getProducts()); 
 // console.log(await product.getProductsById(4))
