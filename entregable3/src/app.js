@@ -3,6 +3,8 @@ import productManager from './components/ProductManager.js'
 
 const app = express()
 
+app.use(express.urlencoded({extended:true}))
+
 const product = new productManager("./products.json")
 
 const getProducts = await product.getProducts()
